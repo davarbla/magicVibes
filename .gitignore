@@ -1,0 +1,32 @@
+# Dependencies and local tooling
+node_modules/
+.local-node/
+.local-windows/
+
+# Build output and caches
+dist/
+coverage/
+.cache/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local PocketBase data and bundled binaries
+apps/pocketbase/pb_data/
+apps/pocketbase/pocketbase
+apps/pocketbase/.local-windows/
+
+# Export archives and generated media
+*.zip
+*.wav
+*.mp3
+*.mp4
+
+# Local editor and OS files
+.vscode/
+.idea/
+*.log
+Thumbs.db
+.DS_Store

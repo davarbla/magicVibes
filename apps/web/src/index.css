@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 100% 98%;
+    --foreground: 280 8% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 280 8% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 8% 20%;
+    --primary: 270 70% 75%;
+    --primary-foreground: 280 8% 20%;
+    --secondary: 45 95% 85%;
+    --secondary-foreground: 280 8% 20%;
+    --muted: 270 30% 96%;
+    --muted-foreground: 280 8% 45%;
+    --accent: 340 80% 85%;
+    --accent-foreground: 280 8% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 270 70% 75%;
+    --radius: 1rem;
+    
+    --sidebar-background: 42 100% 98%;
+    --sidebar-foreground: 280 8% 20%;
+    --sidebar-primary: 270 70% 75%;
+    --sidebar-primary-foreground: 280 8% 20%;
+    --sidebar-accent: 270 30% 96%;
+    --sidebar-accent-foreground: 280 8% 20%;
+    --sidebar-border: 270 20% 90%;
+    --sidebar-ring: 270 70% 75%;
+
+    /* Progress Indicator Colors */
+    --progress-ring: 270 70% 75%;
+    --progress-fill: 270 70% 60%;
+    --progress-background: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 280 15% 8%;
+    --foreground: 42 100% 98%;
+    --card: 280 12% 12%;
+    --card-foreground: 42 100% 98%;
+    --popover: 280 12% 12%;
+    --popover-foreground: 42 100% 98%;
+    --primary: 270 70% 75%;
+    --primary-foreground: 280 8% 20%;
+    --secondary: 45 95% 85%;
+    --secondary-foreground: 280 8% 20%;
+    --muted: 280 12% 18%;
+    --muted-foreground: 42 80% 70%;
+    --accent: 340 80% 85%;
+    --accent-foreground: 280 8% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 280 12% 18%;
+    --input: 280 12% 18%;
+    --ring: 270 70% 75%;
+    
+    --sidebar-background: 280 15% 8%;
+    --sidebar-foreground: 42 100% 98%;
+    --sidebar-primary: 270 70% 75%;
+    --sidebar-primary-foreground: 280 8% 20%;
+    --sidebar-accent: 280 12% 18%;
+    --sidebar-accent-foreground: 42 100% 98%;
+    --sidebar-border: 280 12% 18%;
+    --sidebar-ring: 270 70% 75%;
+
+    /* Progress Indicator Colors */
+    --progress-ring: 280 12% 25%;
+    --progress-fill: 270 70% 75%;
+    --progress-background: 280 12% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: clip;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+    text-wrap: balance;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold leading-snug;
+    text-wrap: balance;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl font-semibold leading-snug;
+    text-wrap: balance;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* General Music Component Styles */
+  .music-selector-pill {
+    @apply inline-flex items-center h-12 bg-card border border-border/60 rounded-full px-4 gap-3 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .music-selector-trigger {
+    @apply flex items-center gap-2 hover:text-primary transition-colors outline-none text-sm font-medium cursor-pointer;
+  }
+  .music-selector-divider {
+    @apply w-px h-5 bg-border/60;
+  }
+  .music-selector-btn {
+    @apply text-muted-foreground hover:text-primary transition-colors flex items-center justify-center w-8 h-8 rounded-full hover:bg-primary/10;
+  }
+  .music-selector-volume {
+    @apply flex items-center gap-2 w-24;
+  }
+
+  /* Story Creator Music Player Styles */
+  .music-player-container {
+    @apply bg-gradient-to-r from-secondary/10 to-primary/5 border border-primary/20 rounded-2xl p-4 flex flex-col md:flex-row md:items-center gap-4 transition-all w-full;
+  }
+  .music-player-controls {
+    @apply flex items-center justify-between gap-3 w-full md:w-auto;
+  }
+  .music-player-btn {
+    @apply flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all shadow-md flex-shrink-0;
+  }
+  .music-player-btn-disabled {
+    @apply opacity-50 cursor-not-allowed hover:bg-primary hover:scale-100 shadow-none;
+  }
+  
+  .playing-bars {
+    @apply flex items-end justify-center gap-0.5 h-4 w-4 overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .magical-gradient {
+    background: linear-gradient(135deg, hsl(270 70% 75%) 0%, hsl(45 95% 85%) 50%, hsl(340 80% 85%) 100%);
+  }
+  
+  .magical-text {
+    background: linear-gradient(135deg, hsl(270 70% 65%) 0%, hsl(45 95% 75%) 50%, hsl(340 80% 75%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .magical-shadow {
+    box-shadow: 0 10px 40px -10px hsl(270 70% 75% / 0.3);
+  }
+  
+  .magical-border {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, hsl(270 70% 75%), hsl(45 95% 85%), hsl(340 80% 85%)) border-box;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-confetti {
+    animation: confetti-pop 0.6s ease-out forwards;
+  }
+
+  .progress-ring-circle {
+    transition: stroke-dashoffset 0.1s linear, stroke 0.3s ease;
+  }
+  
+  .bar-1 { animation: music-bar 1s ease-in-out infinite alternate; }
+  .bar-2 { animation: music-bar 0.8s ease-in-out infinite alternate 0.2s; }
+  .bar-3 { animation: music-bar 1.2s ease-in-out infinite alternate 0.4s; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 20px 0px hsl(270 70% 75% / 0.4); }
+  50% { opacity: .8; box-shadow: 0 0 40px 10px hsl(270 70% 75% / 0.6); }
+}
+
+@keyframes confetti-pop {
+  0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+  50% { transform: scale(1.1) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes music-bar {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
